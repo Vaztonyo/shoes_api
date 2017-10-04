@@ -1,0 +1,29 @@
+{
+  "name": "shoes_api",
+  "version": "1.0.0",
+  "description": " Online shoe catalogue using api ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vaztonyo/shoes_api.git"
+  },
+  "keywords": [
+    "shoes",
+    "api"
+  ],
+  "author": "Vaztonyo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vaztonyo/shoes_api/issues"
+  },
+  "homepage": "https://github.com/Vaztonyo/shoes_api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "node": "^8.3.0",
+    "nodemon": "^1.12.1"
+  }
+}
