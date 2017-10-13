@@ -13,6 +13,12 @@ const shoeRoutes = ShoeRoutes(models);
 
 const app = express();
 
+// app.use(function(req, res, next) {
+//         res.header('Access-Control-Allow-Origin', "*");
+//         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//         res.header('Access-Control-Allow-Headers', '"Origin, X-Requested-With, Content-Type, Accept"');
+//         next();
+// });
 
 app.engine('handlebars', exphbs({ // set the app engine to handlebars
     defaultLayout: 'main' // set the default layout to main
@@ -35,10 +41,11 @@ app.get('/', function(req, res){
 app.get('/api/shoes', shoeRoutes.Shoes);
 app.get('/api/shoes/brand/:brand', shoeRoutes.shoeBrand);
 app.get('/api/shoes/size/:size', shoeRoutes.shoeSize);
+app.get('/api/shoes/color/:color', shoeRoutes.shoeColor);
 app.get('/api/shoes/brand/:brand/size/:size', shoeRoutes.shoeBrandAndSize);
 
 app.post('/api/shoes', shoeRoutes.addShoe);
-// app.post('/api/shoes/sold/:id', shoeRoutes.sold);
+app.post('/api/shoes/sold/:id', shoeRoutes.soldShoe);
 
 const port = process.env.PORT || 8080;
 

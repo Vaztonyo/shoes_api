@@ -24,7 +24,7 @@ module.exports = function(mongoUrl) {
         },
         price: {
             type: Number,
-            default: 0.00
+            default: 200.00
         },
         size: {
             type: Number,
