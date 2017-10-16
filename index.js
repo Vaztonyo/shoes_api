@@ -1,7 +1,7 @@
 //Require All The Modules Needed for This Project
 const express = require('express');
 const exphbs = require('express-handlebars');
-const jParser = require('body-parser').json;
+const jParser = require('body-parser');
 const logger = require('morgan');
 
 const Models = require('./models');
@@ -13,12 +13,14 @@ const shoeRoutes = ShoeRoutes(models);
 
 const app = express();
 
-// app.use(function(req, res, next) {
-//         res.header('Access-Control-Allow-Origin', "*");
-//         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//         res.header('Access-Control-Allow-Headers', '"Origin, X-Requested-With, Content-Type, Accept"');
-//         next();
-// });
+app.use(function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', "*");
+        res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type", "Accept");
+        if(req.methods === 'OPTIONS'){
+          res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        }
+        next();
+});
 
 app.engine('handlebars', exphbs({ // set the app engine to handlebars
     defaultLayout: 'main' // set the default layout to main
@@ -26,7 +28,7 @@ app.engine('handlebars', exphbs({ // set the app engine to handlebars
 app.set('view engine', 'handlebars');
 
 app.use(logger("dev"));
-app.use(jParser());
+app.use(jParser.urlencoded({extended: false}));
 
 
 app.use(express.static('public')); //use static and set it to public
@@ -38,7 +40,7 @@ app.get('/', function(req, res){
   res.redirect('/api/shoes');
 })
 
-app.get('/api/shoes', shoeRoutes.Shoes);
+app.get('/api/shoes', shoeRoutes.shoes);
 app.get('/api/shoes/brand/:brand', shoeRoutes.shoeBrand);
 app.get('/api/shoes/size/:size', shoeRoutes.shoeSize);
 app.get('/api/shoes/color/:color', shoeRoutes.shoeColor);

@@ -1,0 +1,25 @@
+html{
+  background-color: dodgerblue;
+  margin: auto;
+  height: 100%;
+}
+
+.container{
+  font-family: 'Lobster', cursive;
+  /*font-family: 'Dancing Script', cursive;*/
+  padding: 2px;
+  height: 85%;
+  color: blue;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}

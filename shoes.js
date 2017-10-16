@@ -1,7 +1,7 @@
 module.exports = function(models) {
     'use strict';
 
-    const Shoes = function(req, res, next) {
+    const shoes = function(req, res, next) {
         models.Shoes.find({}, function(err, shoes) {
             if (err) {
                 return next(err);
@@ -118,7 +118,7 @@ module.exports = function(models) {
     };
 
     return {
-        Shoes,
+        shoes,
         addShoe,
         shoeBrand,
         shoeSize,
