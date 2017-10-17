@@ -19,6 +19,7 @@
 </head>
 <hr>
 <body class="container" align="center">
+  <!-- <form method="get"> -->
   <div class="container">
     <div class="searchMenu" align="center">
       <h1>Search Stock:</h1>
@@ -64,10 +65,8 @@
 
 
 
-
-        <!-- <button onclick="hide()" class='hideBtn'>Adding Stock</button><br><br><br> -->
       <h1 align="center">Add New Stock:</h1><br>
-    <form class="container" method="post">
+    <!-- <form class="form conrol" method="post"> -->
     <div class="addStock hidden">
         <input id="brand" type="text" value="" placeholder=" Enter Brand" required="true">
         <input id="color" type="text" value="" placeholder=" Enter Color" required="true"><br><br>
@@ -76,13 +75,13 @@
         <input id="Id" type="text" value="" placeholder=" Enter Id" required="true">
         <input id="InStock" type="text" value="" placeholder=" Enter Number Of Stock" required="true"><br>
 
-        <br><button class='btn btn-primary' id="show" type="add">Add Stock</button><br><br>
+        <br><button class='btn btn-primary' onClick="window.location.reload()" id="show" type="add">Add Stock</button><br><br>
     </div>
-  </form>
+  <!-- </form> -->
 
 
 
-  <form class="sell" method="post">
+  <!-- <form class="sell" method="post"> -->
     <div id="display" align = 'center'>
         <script id="output" type="text/x-handlebars-template">
             <table id="table">
@@ -103,7 +102,7 @@
                     <td>{{size}}</td>
                     <td>{{in_stock}}</td>
                     <td> R {{price}}</td>
-                    <td><form class="sell" method="post"><button class='btn btn-primary' onClick="window.location.reload()" id ="button" value={{id}}>Buy</button></form></td>
+                    <td><button class='btn btn-primary' onClick="window.location.reload()" id ="button" value={{id}}>Buy</button></td>
                 </tr>
 
                 {{/each}}
@@ -119,6 +118,7 @@
 
 
       </div>
+    <!-- </form> -->
 </body><hr>
 <script type="text/javascript" src="shoeCat.js">
 </script>

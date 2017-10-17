@@ -14,7 +14,7 @@ var theTemplate = Handlebars.compile(template);
 function displayAllShoes() {
     $.ajax({
         type: "GET",
-        url: 'https://vaztonyo-shoe-api.herokuapp.com/api/shoes',
+        url: '/api/shoes/',
         dataType: "json",
 
     }).done(function(results) {
@@ -59,7 +59,7 @@ $(function() {
         }
         $.ajax({
             type: "POST",
-            url: 'https://vaztonyo-shoe-api.herokuapp.com/api/shoes',
+            url: '/api/shoes/',
             dataType: "json",
             data: shoes,
             success: function(data) {
@@ -125,7 +125,7 @@ $(function() {
             console.log(id);
             $.ajax({
                 type: "POST",
-                url: 'https://vaztonyo-shoe-api.herokuapp.com/api/shoes/sold/' + id,
+                url: '/api/shoes/sold/' + id,
                 dataType: "json",
 
                 success: function(data) {},
