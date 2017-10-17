@@ -5,11 +5,14 @@ html{
 }
 
 .container{
-  font-family: 'Lobster', cursive;
   /*font-family: 'Dancing Script', cursive;*/
   padding: 2px;
   height: 85%;
   color: blue;
+}
+
+h1{
+  font-family: 'Lobster', cursive;
 }
 
 table {
@@ -30,3 +33,7 @@ th {
 tr:nth-child(odd){background-color: lightblue}
 
 tr:hover{background-color: silver}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}

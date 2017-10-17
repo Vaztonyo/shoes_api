@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,14 +26,14 @@
       <div class="Button" >
         <div class="displaySize">
           <!-- <form class="form-inline float-left" action="index.html" method="post"> -->
-            <input id="search" type="text" name="" value="" class="search" placeholder="enter size ">
+            <input id="search" type="text" name="" value="" class="search" placeholder=" Enter Size ">
           <!-- </form> -->
         </div><br>
       </div>
       <div class="Button">
         <div class="displayBrand">
           <!-- <form class="form-inline float-right" action="index.html" method="post"> -->
-            <input id="filter" type="text" name="brand" value="" class="search" placeholder="enter brand ">
+            <input id="filter" type="text" name="brand" value="" class="search" placeholder=" Enter Brand ">
           <!-- </form> -->
         </div>
 </div><br>
@@ -91,6 +91,7 @@
                     <th>Size:</th>
                     <th>In Stock:</th>
                     <th>Price:</th>
+                    <!-- <th>ID:</th> -->
                     <th>Purchase:</th>
                 </tr>
 
@@ -102,6 +103,7 @@
                     <td>{{size}}</td>
                     <td>{{in_stock}}</td>
                     <td> R {{price}}</td>
+                    <!-- <td>{{id}}</td> -->
                     <td><button class='btn btn-primary' onClick="window.location.reload()" id ="button" value={{id}}>Buy</button></td>
                 </tr>
 
@@ -119,7 +121,8 @@
 
       </div>
     <!-- </form> -->
-</body><hr>
+    <hr>
+</body>
 <script type="text/javascript" src="shoeCat.js">
 </script>
 
