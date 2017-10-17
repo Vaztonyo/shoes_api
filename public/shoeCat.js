@@ -1,157 +1,137 @@
-// $(function() {
+var display = document.getElementById("display");
+
+var dropDownDisplay = document.querySelector("#drpdwn");
+var dis = document.querySelector("#dis");
+
+// var brandropDowns = document.getElementById("newBrandOption").innerHTML;
+// var brandDrops = Handlebars.compile(brandropDowns);
+// var colordropDowns = document.getElementById("newColorOption").innerHTML;
+// var colorDrops = Handlebars.compile(colordropDowns);
+var template = document.getElementById("output").innerHTML;
+var theTemplate = Handlebars.compile(template);
+
+//display all shoes when show all button is clicked
+function displayAllShoes() {
+    $.ajax({
+        type: "GET",
+        url: 'https://vaztonyo-shoe-api.herokuapp.com/api/shoes',
+        dataType: "json",
+
+    }).done(function(results) {
+        var template = document.getElementById("output").innerHTML;
+        var theTemplate = Handlebars.compile(template);
+
+        result = theTemplate({
+            stock: results.shoes
+        });
+        document.getElementById('results').innerHTML = result;
+    });
+};
 
 
-    var display = document.getElementById("display");
+//
+$(function() {
+    //add s
+    $('#show').on('click', function() {
+        var brand = document.getElementById('brand').value;
+        var color = document.getElementById('color').value;
+        var size = document.getElementById('size').value;
+        var inStock = document.getElementById('InStock').value;
+        var price = document.getElementById('Price').value;
+        var Id = document.getElementById('Id').value;
 
-    var dropDownDisplay = document.querySelector("#drpdwn");
-    var dis = document.querySelector("#dis");
+        var display = document.getElementById("display");
 
-    var brandropDowns = document.getElementById("newBrandOption").innerHTML;
-    var brandDrops = Handlebars.compile(brandropDowns);
-    var colordropDowns = document.getElementById("newColorOption").innerHTML;
-    var colorDrops = Handlebars.compile(colordropDowns);
+        var table = document.getElementById("output").innerHTML;
+        var theTemplate = Handlebars.compile(table);
 
-
-
-    function displayAllShoes() {
+        var shoes = {
+            id: Id,
+            brand: brand,
+            color: color,
+            size: size,
+            in_stock: inStock,
+            price: price
+        }
+        console.log(shoes);
+        if (!brand || !color || !Id || !size) {
+            return;
+        }
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: 'https://vaztonyo-shoe-api.herokuapp.com/api/shoes',
-            // dataType: "json",
+            dataType: "json",
+            data: shoes,
+            success: function(data) {
 
-        }).done(function(results) {
-          var template = document.getElementById("output").innerHTML;
-          var theTemplate = Handlebars.compile(template);
+                display.innerHTML = theTemplate({
+                    stock: data.shoes
+                })
+            },
+            error: function(error) {
 
-                result = theTemplate({
-                    stock: results.shoes
-                });
-                document.getElementById('results').innerHTML = result;
-            });
-        };
+            }
+        })
+    })
 
-        //     display.innerHTML = theTemplate({
-        //         stock: data
-        //     })
-        //
-        //     dis.innerHTML = brandDrops({
-        //         stock: data
-        //     })
-        //
-        //     dropDownDisplay.innerHTML = colorDrops({
-        //         stock: data
-        //     })
-        // },
-        // error: function(error) {
-        //     // alert('failed while adding stock');
-        // }
-    // })
-// });
+    $('#search').on('keyup', function() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("search");
+        filter = input.value;
+        table = document.getElementById("table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+
+            if (td) {
+                if (td.innerHTML.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
+    //
+    //
+    //
+    //
+    $('#filter').on('keyup', function() {
+        var input, filter, table, tr, tdB, i;
+        input = document.getElementById("filter");
+        filter = input.value;
+        table = document.getElementById("table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            tdB = tr[i].getElementsByTagName("td")[0];
+
+            if (tdB) {
+                if (tdB.innerHTML.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
 
 
+    $('#results').on('click', function(e) {
+            var id = e.target.value;
+            // var table = document.getElementById("output").innerHTML;
+            // var theTemplate = Handlebars.compile(table);
+            console.log(id);
+            $.ajax({
+                type: "POST",
+                url: 'https://vaztonyo-shoe-api.herokuapp.com/api/shoes/sold/' + id,
+                dataType: "json",
 
+                success: function(data) {},
+                error: function(error) {
 
-
-
-
-//
-//     $('#show').on('click', function() {
-//         var brand = document.getElementById('brand').value;
-//         var color = document.getElementById('color').value;
-//         var size = document.getElementById('size').value;
-//         var inStock = document.getElementById('InStock').value;
-//         var price = document.getElementById('Price').value;
-//
-//         var display = document.getElementById("display");
-//
-//         // var table = document.getElementById("output").innerHTML;
-//         // var theTemplate = Handlebars.compile(table);
-//
-//         var shoes = {
-//             brand: brand,
-//             color: color,
-//             size: size,
-//             in_stock: inStock,
-//             price: price
-//         }
-//         console.log(shoes);
-//
-//         $.ajax({
-//             type: "POST",
-//             url: 'localhost:8080/api/shoes',
-//             dataType: "json",
-//             data: shoes,
-//             success: function(data) {
-//
-//                 display.innerHTML = theTemplate({
-//                     stock: data.shoes
-//                 })
-//             },
-//             error: function(error) {
-//
-//             }
-//         })
-//     })
-//
-//     $('#dis').on('click', function(e) {
-//
-//         var brandOption = e.target.value;
-//
-//         $.ajax({
-//             type: "GET",
-//             url: 'localhost:8080/api/shoe/brand/' + brand,
-//             success: function(data) {
-//                 console.log(data);
-//                 display.innerHTML = theTemplate({
-//                     stock: data
-//                 })
-//             },
-//             error: function(error) {
-//
-//             }
-//         })
-//     })
-//
-//
-//
-//
-//     $('#drpdwn').on('click', function(e) {
-//
-//         var color = e.target.value;
-//
-//         $.ajax({
-//             type: "GET",
-//             url: 'localhost:8080/api/shoe/color/' + color,
-//             success: function(data) {
-//                 display.innerHTML = theTemplate({
-//                     stock: data
-//                 })
-//             },
-//             error: function(error) {
-//
-//             }
-//         })
-//     })
-//
-//
-//     $('#display').on('click', function(e) {
-//         var id = e.target.value;
-//
-//         $.ajax({
-//             type: "POST",
-//             url: 'localhost:8080/api/shoes/sold/' + id,
-//             dataType: "json",
-//
-//             success: function(data) {
-//                 display.innerHTML = theTemplate({
-//                     stock: data
-//                 })
-//             },
-//             error: function(error) {
-//
-//             }
-//         })
-//     })
-//
-//
-// })
+                }
+            })
+        });
+});

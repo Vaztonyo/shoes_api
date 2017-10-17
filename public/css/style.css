@@ -1,7 +1,7 @@
 html{
   background-color: dodgerblue;
   margin: auto;
-  height: 100%;
+  height: auto;
 }
 
 .container{
@@ -22,4 +22,11 @@ th, td {
     padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: dodgerblue;
+    color: white;
+}
+
+tr:nth-child(odd){background-color: lightblue}
+
+tr:hover{background-color: silver}
