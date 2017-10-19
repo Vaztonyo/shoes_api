@@ -19,54 +19,25 @@
 </head>
 <hr>
 <body class="container" align="center">
-  <!-- <form method="get"> -->
   <div class="container">
     <div class="searchMenu" align="center">
       <h1>Search Stock:</h1>
       <div class="Button" >
         <div class="displaySize">
-          <!-- <form class="form-inline float-left" action="index.html" method="post"> -->
             <input id="search" type="text" name="" value="" class="search" placeholder=" Enter Size ">
-          <!-- </form> -->
         </div><br>
       </div>
       <div class="Button">
         <div class="displayBrand">
-          <!-- <form class="form-inline float-right" action="index.html" method="post"> -->
             <input id="filter" type="text" name="brand" value="" class="search" placeholder=" Enter Brand ">
-          <!-- </form> -->
         </div>
 </div><br>
 
   <input class='btn btn-primary' onclick="displayAllShoes()" type='button' value='Show All'></input>
 </div><br>
 
-    <!-- <div id="dis" align="center">
-
-      <script id="newBrandOption" type="text/x-handlebars-template">
-        <select class ="brand">
-          {{#each stock}}
-          <option>{{this.brand}}</option>
-          {{/each}}
-        </select>
-      </script>
-</div>
-    <br>
-    <div id="drpdwn" align="center">
-
-    <script id="newColorOption" type="text/x-handlebars-template">
-        <select class="color">
-          {{#each stock}}
-              <option>{{this.color}}</option>
-              {{/each}}
-            </select>
-        </script>
-      </div> -->
-
-
 
       <h1 align="center">Add New Stock:</h1><br>
-    <!-- <form class="form conrol" method="post"> -->
     <div class="addStock hidden">
         <input id="brand" type="text" value="" placeholder=" Enter Brand" required="true">
         <input id="color" type="text" value="" placeholder=" Enter Color" required="true"><br><br>
@@ -77,14 +48,11 @@
 
         <br><button class='btn btn-primary' onClick="window.location.reload()" id="show" type="add">Add Stock</button><br><br>
     </div>
-  <!-- </form> -->
 
 
-
-  <!-- <form class="sell" method="post"> -->
     <div id="display" align = 'center'>
         <script id="output" type="text/x-handlebars-template">
-            <table id="table">
+            <table id="table" align="center">
                 <tr>
                     <th>Brand:</th>
                     <th>Color:</th>
@@ -120,9 +88,8 @@
 
 
       </div>
-    <!-- </form> -->
-    <hr>
 </body>
+<!-- <hr> -->
 <script type="text/javascript" src="shoeCat.js">
 </script>
 

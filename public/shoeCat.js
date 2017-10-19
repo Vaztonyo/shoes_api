@@ -1,16 +1,27 @@
 var display = document.getElementById("display");
 
-var dropDownDisplay = document.querySelector("#drpdwn");
+// var dropDownDisplay = document.querySelector("#drpdwn");
 var dis = document.querySelector("#dis");
 
-// var brandropDowns = document.getElementById("newBrandOption").innerHTML;
-// var brandDrops = Handlebars.compile(brandropDowns);
-// var colordropDowns = document.getElementById("newColorOption").innerHTML;
-// var colorDrops = Handlebars.compile(colordropDowns);
 var template = document.getElementById("output").innerHTML;
 var theTemplate = Handlebars.compile(template);
 
 //display all shoes when show all button is clicked
+  $.ajax({
+    type: "GET",
+    url: '/api/shoes/',
+    dataType: "json",
+
+  }).done(function(results) {
+    var template = document.getElementById("output").innerHTML;
+    var theTemplate = Handlebars.compile(template);
+
+    result = theTemplate({
+      stock: results.shoes
+    });
+    document.getElementById('results').innerHTML = result;
+  });
+
 function displayAllShoes() {
     $.ajax({
         type: "GET",
@@ -29,16 +40,26 @@ function displayAllShoes() {
 };
 
 
+
 //
 $(function() {
     //add s
     $('#show').on('click', function() {
+
         var brand = document.getElementById('brand').value;
         var color = document.getElementById('color').value;
         var size = document.getElementById('size').value;
         var inStock = document.getElementById('InStock').value;
         var price = document.getElementById('Price').value;
         var Id = document.getElementById('Id').value;
+
+        var firstLetB = brand.substring(0, 1);
+        var capLetB = brand.substring(0, 1).toUpperCase();
+        var firstLetC = color.substring(0, 1);
+        var capLetC = color.substring(0, 1).toUpperCase();
+
+        var capBrand = brand.replace(firstLetB, capLetB);
+        var capColor = color.replace(firstLetC, capLetC);
 
         var display = document.getElementById("display");
 
@@ -47,8 +68,8 @@ $(function() {
 
         var shoes = {
             id: Id,
-            brand: brand,
-            color: color,
+            brand: capBrand,
+            color: capColor,
             size: size,
             in_stock: inStock,
             price: price
@@ -100,7 +121,7 @@ $(function() {
     $('#filter').on('keyup', function() {
         var input, filter, table, tr, tdB, i;
         input = document.getElementById("filter");
-        filter = input.value;
+        filter = input.value.substring(0, 1).toUpperCase();
         table = document.getElementById("table");
         tr = table.getElementsByTagName("tr");
 
@@ -120,8 +141,7 @@ $(function() {
 
     $('#results').on('click', function(e) {
             var id = e.target.value;
-            // var table = document.getElementById("output").innerHTML;
-            // var theTemplate = Handlebars.compile(table);
+
             console.log(id);
             $.ajax({
                 type: "POST",
