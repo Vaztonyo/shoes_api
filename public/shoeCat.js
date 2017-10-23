@@ -121,9 +121,10 @@ $(function() {
     $('#filter').on('keyup', function() {
         var input, filter, table, tr, tdB, i;
         input = document.getElementById("filter");
-        filter = input.value.substring(0, 1).toUpperCase();
+        filter = input.value;
         table = document.getElementById("table");
         tr = table.getElementsByTagName("tr");
+
 
         for (i = 0; i < tr.length; i++) {
             tdB = tr[i].getElementsByTagName("td")[0];
