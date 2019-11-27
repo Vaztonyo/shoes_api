@@ -3,11 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <title>Shoe Catalogue</title>
@@ -15,45 +11,62 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
 
 </head>
-<hr>
-<body class="container" align="center">
-  <div class="container">
-    <div class="searchMenu" align="center">
-      <h1>Search Stock:</h1>
-      <div class="Button" >
-        <div class="displaySize">
-            <input id="search" type="text" name="" value="" class="search" placeholder=" Enter Size ">
-        </div><br>
+
+<body >
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <div class="nav navbar-nav">
+      <a class="nav-item nav-link active" href="">Shoe Catalogue<span class="sr-only">(current)</span></a>
+
+        <img src="img/shoe-32-173952.png" alt="" srcset="">
+          
       </div>
-      <div class="Button">
-        <div class="displayBrand">
-            <input id="filter" type="text" name="brand" value="" class="search" placeholder=" Enter Brand ">
-        </div>
-</div><br>
+  </nav>
 
-  <input class='btn btn-primary' onclick="displayAllShoes()" type='button' value='Show All'></input>
-</div><br>
+  
+  <div class="container bg-light" align="center">
 
+    <div class="wrapper" align="center">
+   
 
-      <h1 align="center">Add New Stock:</h1><br>
-    <div class="addStock hidden">
-        <input id="brand" type="text" value="" placeholder=" Enter Brand" required="true">
-        <input id="color" type="text" value="" placeholder=" Enter Color" required="true"><br><br>
-        <input id="size" type="text" value="" placeholder=" Enter Size" required="true">
-        <input id="Price" type="text" value="" placeholder=" Enter Price" required="true"><br><br>
-        <input id="Id" type="text" value="" placeholder=" Enter Id" required="true">
-        <input id="InStock" type="text" value="" placeholder=" Enter Number Of Stock" required="true"><br>
+      <div class="addStock hidden">
+          <h1 align="center">Add New Stock:</h1>
+        <input id="brand" type="text" value="" placeholder=" Enter Brand" required>
+        <input id="color" type="text" value="" placeholder=" Enter Color" required><br><br>
+        <input id="size" type="text" value="" placeholder=" Enter Size" required>
+        <input id="Price" type="text" value="" placeholder=" Enter Price" required><br><br>
+        <input id="Id" type="text" value="" placeholder=" Enter Id" >
+        <input id="InStock" type="text" value="" placeholder=" Enter Number Of Stock" required><br>
 
-        <br><button class='btn btn-primary' onClick="window.location.reload()" id="show" type="add">Add Stock</button><br><br>
+        <br><button class='btn btn-dark' onClick="window.location.reload()" id="show" type="add">Add Stock</button><br><br>
     </div>
 
+    <div class="searchMenu" align="center">
+        <h1>Search Stock:</h1>
+        <div class="Button" >
+          <div class="displaySize">
+              <input id="search" type="text" name="" value="" class="search" placeholder=" Enter Size ">
+          </div><br>
+        </div>
+        <div class="Button">
+          <div class="displayBrand">
+              <input id="filter" type="text" name="brand" value="" class="search" placeholder=" Enter Brand ">
+          </div>
+  </div><br>
+  
+    <input class='btn btn-dark' onclick="displayAllShoes()" type='button' value='Show All'></input>
+  </div>
 
-    <div id="display" align = 'center'>
+  </div><br><br>
+
+
+    <div id="display" class="table-responsive " align = 'center'>
         <script id="output" type="text/x-handlebars-template">
             <table id="table" align="center">
-                <tr>
+                <tr class="bg-dark" >
                     <th>Brand:</th>
                     <th>Color:</th>
                     <th>Size:</th>
@@ -71,8 +84,7 @@
                     <td>{{size}}</td>
                     <td>{{in_stock}}</td>
                     <td> R {{price}}</td>
-                    <!-- <td>{{id}}</td> -->
-                    <td><button class='btn btn-primary' onClick="window.location.reload()" id ="button" value={{id}}>Buy</button></td>
+                    <td><button class='btn btn-dark' onClick="window.location.reload()" id ="button" value={{id}}>Buy</button></td>
                 </tr>
 
                 {{/each}}
@@ -88,9 +100,16 @@
 
 
       </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="shoeCat.js">
+      </script>
+
 </body>
 <!-- <hr> -->
-<script type="text/javascript" src="shoeCat.js">
-</script>
+
 
 </html>

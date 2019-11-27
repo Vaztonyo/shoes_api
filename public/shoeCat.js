@@ -103,7 +103,7 @@ $(function() {
         tr = table.getElementsByTagName("tr");
 
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2];
+            td = tr[i].getElementsByTagName("td")[0];
 
             if (td) {
                 if (td.innerHTML.indexOf(filter) > -1) {
@@ -114,10 +114,8 @@ $(function() {
             }
         }
     });
-    //
-    //
-    //
-    //
+    
+    
     $('#filter').on('keyup', function() {
         var input, filter, table, tr, tdB, i;
         input = document.getElementById("filter");

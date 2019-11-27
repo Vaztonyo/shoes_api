@@ -1,23 +1,36 @@
 html{
-  background-color: dodgerblue;
   margin: auto;
   height: auto;
+  
 }
 
 .container{
   /*font-family: 'Dancing Script', cursive;*/
-  padding: 2px;
-  height: 85%;
-  color: blue;
+  padding: 0.5em;
+  margin: 0.5em;;
+  width: 85%;
+
 }
 
-h1{
+.wrapper {
+  display: grid;
+  grid-template-columns: 70% 42%;
+  grid-gap: 1em;
+}
+
+.wrapper>div {
+  background: #ddd;
+  padding: 1em;
+  /* margin-right: 0.5em; */
+}
+
+h1, a{
   font-family: 'Lobster', cursive;
 }
 
 table {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
 }
 
 th, td {
@@ -25,20 +38,18 @@ th, td {
     padding: 8px;
 }
 
+td {
+  background: #ddd;
+}
+
 th {
-    background-color: dodgerblue;
+
     color: white;
 }
 
-tr:nth-child(odd){background-color: lightblue}
 
 tr:hover{background-color: silver}
 
-input[type=text]{
-    background-color: dodgerblue;
-}
-input[type=text]:focus {
-    border: 3px solid #555;
-    background-color: midnightblue;
-    color: white;
+input:required {
+  box-shadow:none;
 }
