@@ -25,7 +25,7 @@
   "homepage": "https://github.com/Vaztonyo/shoes_api#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "heroku": "^7.35.0",
